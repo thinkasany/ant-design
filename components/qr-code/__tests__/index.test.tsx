@@ -94,4 +94,10 @@ describe('QRCode test', () => {
       'width: 100px; height: 80px',
     );
   });
+  it('correct style order for canvas', () => {
+    const { container } = render(<QRCode value="test" style={{ width: '100%' }} />);
+    const svgElement = container.querySelector('.ant-qrcode > canvas');
+    expect(svgElement).not.toBeNull();
+    expect(svgElement.style.width).toBe('100%');
+  });
 });
