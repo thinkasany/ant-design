@@ -96,7 +96,8 @@ describe('QRCode test', () => {
   });
   it('correct style order for canvas', () => {
     const { container } = render(<QRCode value="test" style={{ width: '100%' }} />);
-    const canvasElement = container.querySelector('.ant-qrcode > canvas') as HTMLCanvasElement;
-    expect(canvasElement?.style.width).toBe('100%');
+    expect(container.querySelector<HTMLCanvasElement>('.ant-qrcode > canvas')).toHaveStyle(
+      'width: 100%',
+    );
   });
 });
